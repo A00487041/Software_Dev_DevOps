@@ -10,14 +10,14 @@ steps:
     versionSpec: '18.0'
   displayName: 'Install Node.js'
 
-- script:
+- script: |
     cd src/ReactApp1/reactapp1.client
     npm install
     npm run build
   displayName: 'npm install and build'
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: 'src/ReactApp1/reactapp1.client/dist'
+    PathtoPublish: '$(Build.SourcesDirectory)/src/ReactApp1/reactapp1.client/dist'
     ArtifactName: 'drop'
     publishLocation: 'Container'
   
