@@ -1,0 +1,22 @@
+trigger:
+- main
+pool:
+    vmImage: ubuntu-latest
+    
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSource: 'spec'
+    versionSpec: '18.0'
+  displayName: 'Install Node.js'
+- task: Npm@1
+  inputs:
+    CustomCommand: 'npm install && npm run build'
+    workingDir: '../../src/ReactApp1/reactapp1.client'
+  displayName: 'npm install and build'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '../../src/ReactApp1/reactapp1.client'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+  
