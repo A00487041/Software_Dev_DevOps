@@ -17,7 +17,7 @@ steps:
   displayName: 'npm install and build'
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: $(Build.ArtifactStagingDirectory)/Software_Dev_DevOps/src/ReactApp1/reactapp1.client/dist'
+    PathtoPublish: src/ReactApp1/reactapp1.client/dist'
     ArtifactName: 'drop'
     publishLocation: 'Container'
   
