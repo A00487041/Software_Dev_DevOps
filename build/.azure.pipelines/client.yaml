@@ -9,10 +9,11 @@ steps:
     versionSource: 'spec'
     versionSpec: '18.0'
   displayName: 'Install Node.js'
-- task: Npm@1
-  inputs:
-    CustomCommand: 'npm install && npm run build'
-    workingDir: '$(Build.ArtifactStagingDirectory)/Software_Dev_DevOps/src/ReactApp1/reactapp1.client'
+
+- script:
+    cd src/ReactApp1/reactapp1.client
+    npm install
+    npm run build
   displayName: 'npm install and build'
 - task: PublishBuildArtifacts@1
   inputs:
